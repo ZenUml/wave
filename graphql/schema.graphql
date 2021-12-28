@@ -15,7 +15,7 @@ type Query {
 type User {
     id: ID!
     name: String!
-    email: String!
+    email: String! @guard
     created_at: DateTime!
     updated_at: DateTime!
     diagrams: [Diagram!]! @hasMany
