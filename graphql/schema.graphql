@@ -7,6 +7,9 @@ scalar DateTime @scalar(class: "Nuwave\\Lighthouse\\Schema\\Types\\Scalars\\Date
 type Query {
     users: [User!]! @paginate(defaultCount: 10)
     user(id: ID @eq): User @find
+
+    diagrams: [Diagram!]! @all
+    diagram(id: Int! @eq): Diagram @find
 }
 
 type User {
@@ -15,4 +18,19 @@ type User {
     email: String!
     created_at: DateTime!
     updated_at: DateTime!
+    diagrams: [Diagram!]! @hasMany
+}
+
+type Diagram {
+    id: ID!
+    title: String!
+    content: String!
+    author: User! @belongsTo
+    comments: [Comment!]! @hasMany
+}
+
+type Comment {
+    id: ID!
+    reply: String!
+    diagram: Diagram! @belongsTo
 }
