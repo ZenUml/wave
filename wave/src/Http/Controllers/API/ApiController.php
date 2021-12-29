@@ -12,7 +12,7 @@ class ApiController extends \TCG\Voyager\Http\Controllers\Controller
 
     public function __construct()
     {
-        $this->middleware('auth:api');
+        $this->middleware('auth');
     }
 
 	use BreadRelationshipParser;

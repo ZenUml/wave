@@ -2,8 +2,9 @@
 
 namespace App;
 
+use App\Models\Diagram;
 use Illuminate\Notifications\Notifiable;
-use Illuminate\Foundation\Auth\User as Authenticatable;
+use Illuminate\Database\Eloquent\Relations\HasMany;
 use \Storage;
 
 class User extends \Wave\User
@@ -34,5 +35,10 @@ class User extends \Wave\User
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    public function posts(): HasMany
+    {
+        return $this->hasMany(Diagram::class, 'author_id');
+    }
 
 }
