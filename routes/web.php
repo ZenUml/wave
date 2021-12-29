@@ -15,6 +15,7 @@
 // Authentication routes
 
 use App\Http\Controllers\Auth\GitHubSocialiteController;
+use App\Http\Controllers\Auth\WeixinWebSocialiteController;
 
 Auth::routes();
 
@@ -27,5 +28,8 @@ Wave::routes();
 
 Route::middleware('guest')->group(function () {
     Route::get('auth/github/redirect', [GitHubSocialiteController::class, 'redirect'])->name('github.login');
-    Route::get('auth/github/callback', [GitHubSocialiteController::class, 'callback']);    
+    Route::get('auth/github/callback', [GitHubSocialiteController::class, 'callback']);
+
+    Route::get('auth/weixin/redirect', [WeixinWebSocialiteController::class, 'redirect'])->name('weixinweb.login');
+    Route::get('auth/weixin/callback', [WeixinWebSocialiteController::class, 'callback']);
 });

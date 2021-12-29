@@ -23,6 +23,7 @@
         "livewire/livewire": "^2.4",
         "mll-lab/laravel-graphql-playground": "^2.5",
         "nuwave/lighthouse": "^5.32",
+        "socialiteproviders/weixin-web": "^4.1",
         "tcg/voyager": "1.4.x-dev",
         "tymon/jwt-auth": "dev-develop"
     },
